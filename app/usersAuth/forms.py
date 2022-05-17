@@ -5,16 +5,16 @@ from wtforms.validators  import DataRequired, Length, Email,EqualTo, ValidationE
 from flask_login import current_user
 
 
-class RegistrationForm(FlaskForm):
-    '''
-    Define class
-    '''
-class LoginForm(FlaskForm):
-    '''
-    Define class
-    '''
-class LoginForm(FlaskForm):
-    '''
-    Define class
-    '''
-class LoginForm(FlaskForm):
+# class RegistrationForm(FlaskForm):
+#     '''
+#     Define class
+#     '''
+# class LoginForm(FlaskForm):
+#     '''
+#     Define class
+#     '''
+# class LoginForm(FlaskForm):
+#     '''
+#     Define class
+#     '''
+# class LoginForm(FlaskForm):

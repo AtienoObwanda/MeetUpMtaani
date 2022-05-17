@@ -41,7 +41,7 @@ class User(UserMixin, db.Model):
 # Deals:
 class Deals (db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    dealPrice = db.Column(db.Integer(5), unique=False, nullable=False)
+    dealPrice = db.Column(db.Integer, unique=False, nullable=False)
     title = db.Column(db.String(100), unique=True, nullable=False)
     image = db.Column(db.String(120), nullable=False, default='default.jpg')
     admin_id = db.Column(db.Integer,db.ForeignKey('admin.id'),nullable=False) #user
