@@ -13,4 +13,8 @@ class LoginForm(FlaskForm):
     '''
     Define class
     '''
-
+class LoginForm(FlaskForm):
+    '''
+    Define class
+    '''
+class LoginForm(FlaskForm):
