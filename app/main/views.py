@@ -4,7 +4,7 @@ from . import main
 # Views
 @main.route('/')
 def index():
-    name = "Time to get started "
+    title = "Home"
     # context ={
     #     name: name
     # }
