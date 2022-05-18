@@ -7,9 +7,39 @@ from PIL import Image
 
 from .. import db, bcrypt
 from ..models import User,Reservation,Deals,Review
-from .forms import SignupForm,LoginForm,UpdateAccountForm,AddDealForm,UpdateDealForm
+from .adminForms import SignupForm,LoginForm,UpdateAccountForm,AddDealForm,UpdateDealForm
 
 from . import admin
+
+@admin.route('/users' , methods=['GET','POST'])
+@login_required 
+def viewUsers():
+    users=User.query.all()
+    
+    return  render_template("adminTemplate/users.html", title='Users')
+
+
+
+@admin.route('/deals' , methods=['GET','POST'])
+@login_required 
+def viewDeals():
+    deals = Deals.query.all()
+    return  render_template("adminTemplate/deals.html", title='Users')
+
+
+@admin.route('/reservations' , methods=['GET','POST'])
+@login_required 
+def reservation():
+    reservations=Reservation.query.all()
+    return  render_template("adminTemplate/reservation.html", title='Users')
+
+
+@admin.route('/reviews' , methods=['GET','POST'])
+@login_required 
+def review():
+    reviews = Review.query.all()
+    return  render_template("adminTemplate/reviews.html", title='Users')
+
 
 @admin.route('/signup' , methods=['GET','POST'])
 def adminRegister():
@@ -73,10 +103,7 @@ def save_picture(form_picture): # saving image
 @login_required 
 def adminDashboard():
     user_id = current_user._get_current_object().id
-    users=User.query.all()
-    reservations=Reservation.query.all()
-    deals = Deals.query.all()
-    reviews = Review.query.all()
+    
     form = UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
@@ -91,7 +118,7 @@ def adminDashboard():
         form.username.data = current_user.username 
         form.email.data = current_user.email 
         image = url_for('static', filename='images/' + current_user.image) 
-    return render_template("adminTemplate/adminDashboard.html", title='Account', users=users, reviews=reviews,deals=deals,reservations=reservations,form=form)
+    return render_template("adminTemplate/adminDashboard.html", title='Account', form=form)
 
 
     
