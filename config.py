@@ -1,12 +1,11 @@
 import os
 
 class Config:
-<<<<<<< HEAD
     '''
     Parent config class
     '''
     SECRET_KEY =os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
+    SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     # Mail confugurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -22,10 +21,6 @@ class Config:
     def init_app(app):
         pass
 
-=======
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Gmwangi@localhost/mtaani'
->>>>>>> bca2cfc14080429877f7630b94df000c803cb4ea
 
 
 class ProdConfig(Config):
@@ -37,7 +32,7 @@ class DevConfig(Config):
     development class
     '''
 # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
+SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
 DEBUG = True
 
 config_options = {
