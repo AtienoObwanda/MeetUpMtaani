@@ -54,7 +54,7 @@ class Reservation (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     reservedFrom = db.Column(db.DateTime, nullable=False,default=datetime) # yet to confirm format
     reservedTill = db.Column(db.DateTime, nullable=False,default=datetime)   # yet to confirm format
-    deal_id = db.Column(db.Integer,db.ForeignKey('deal.id'),nullable=False) #deal
+    deal_id = db.Column(db.Integer,db.ForeignKey('deals.id'),nullable=False) #deal
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) #user
 
 def __repr__(self):
