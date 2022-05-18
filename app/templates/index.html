@@ -4,8 +4,8 @@
 <div class="section1">
     <div class="container-fluid">
         <img src="{{ url_for('static', filename='images/heroImg.png') }}" alt="" style="width: 100%; height:100%;" />
-        <p style="margin-top:-80px; color:#A5694B;" <button type="button" class="btn btn-light mb-5">View Deals</button>
-        </p>
+        <a style="margin-top:-80px; color:#A5694B;" <button type="button" class="btn btn-light mb-5" href="{{url_for('main.deals')}}">View Deals</button>
+        </a>
     </div>
 
     <div class="container">
