@@ -72,6 +72,7 @@ class AddDealForm(FlaskForm):
 
     submit = SubmitField('Add Deal')
 
+
 class UpdateDealForm(FlaskForm):
     title = StringField('Post Title',validators=[DataRequired()])
 
@@ -81,5 +82,5 @@ class UpdateDealForm(FlaskForm):
 
     submit = SubmitField('Update Deal')
 
-    
+
 
