@@ -28,6 +28,7 @@ class SignupForm(FlaskForm):
         if admin:
             raise ValidationError('Admin email already in use!')
 
+
 class LoginForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired(),Email()])
 
@@ -37,4 +38,48 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     
     submit = SubmitField('Login')
+
+
+class UpdateAccountForm(FlaskForm):
+    username = StringField('Username', 
+                    validators=[DataRequired(),Length(min=4, max=15)])
+    email = StringField('Email',validators=[DataRequired(),Email()])
+    
+    picture= FileField('Update profile picture',validators=[FileAllowed(['jpg','png','jpeg'])])
+    
+    submit = SubmitField('Update')
+
+    def validate_username(self, username):
+        if username.data != current_user.username:
+            admin= Admin.query.filter_by(username=username.data).first()
+            if admin:
+                raise ValidationError('Username is already in use!')
+
+
+    def validate_email(self, email):
+        if email.data != current_user.email:
+            admin= Admin.query.filter_by(email=email.data).first()
+            if admin:
+                raise ValidationError('Email is already in use!')
+
+
+class AddDealForm(FlaskForm):
+    title = StringField('Post Title',validators=[DataRequired()])
+
+    picture= FileField('Update profile picture',validators=[FileAllowed(['jpg','png','jpeg'])])
+
+    dealPrice = StringField('Post Title',validators=[DataRequired()])
+
+    submit = SubmitField('Add Deal')
+
+class UpdateDealForm(FlaskForm):
+    title = StringField('Post Title',validators=[DataRequired()])
+
+    picture= FileField('Update profile picture',validators=[FileAllowed(['jpg','png','jpeg'])])
+
+    dealPrice = StringField('Post Title',validators=[DataRequired()])
+
+    submit = SubmitField('Update Deal')
+
+    
 

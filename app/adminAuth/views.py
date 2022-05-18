@@ -6,7 +6,7 @@ from PIL import Image
 
 from .. import db, bcrypt
 from ..models import Admin,User,Reservation,Deals,Review
-from .forms import SignupForm,LoginForm
+from .forms import SignupForm,LoginForm,UpdateAccountForm,AddDeal
 
 from . import admin
 
@@ -45,3 +45,4 @@ def adminLogin():
         else:
             flash('Login Failed. Kindly check your email and password then try again','danger')
     return render_template("adminTemplate/login.html",form=form,title='Admin-Login')
+
