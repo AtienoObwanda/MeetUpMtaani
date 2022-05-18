@@ -34,14 +34,14 @@ def adminLogin():
 #         return redirect(url_for('main.index'))
     form = LoginForm()
 
-#     if form.validate_on_submit():
-#         admin = Admin.query.filter_by(email=form.email.data).first()
-#         if admin and bcrypt.check_password_hash(admin.password, form.password.data):
-#             login_user(admin, remember = form.remember.data)
+    if form.validate_on_submit():
+        admin = Admin.query.filter_by(email=form.email.data).first()
+        if admin and bcrypt.check_password_hash(admin.password, form.password.data):
+            login_user(admin, remember = form.remember.data)
 
-#             next_page = request.args.get('next') #  when user tries to acccess restricted page
+            next_page = request.args.get('next') #  when user tries to acccess restricted page
 
-#             return redirect(next_page) if next_page else redirect(url_for('main.index')) # redirects to requested page after loggin in if it exists... if none, redirects to home page
-#         else:
-#             flash('Login Failed. Kindly check your email and password then try again','danger')
+            return redirect(next_page) if next_page else redirect(url_for('main.index')) # redirects to requested page after loggin in if it exists... if none, redirects to home page
+        else:
+            flash('Login Failed. Kindly check your email and password then try again','danger')
     return render_template("adminTemplate/login.html",form=form,title='Admin-Login')
