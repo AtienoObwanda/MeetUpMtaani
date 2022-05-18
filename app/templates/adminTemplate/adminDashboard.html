@@ -1,7 +1,113 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'admin.html' %} {% block content %}
 
-<h1>ADMIN</h1>
-welcome {{ current_user.username }}
+
+<div class="container-fluid mr-5 pt-5 mt-5" style=" box-shadow: 0px 4px 4px #CEB0A1;border-radius: 20px;">
+      <h3 class="text-center" style="color:#A4684B; font-weight: bold;">ADMIN</h3>
+
+    <div class="row">
+      <div
+        class="col-lg-3 ml-5"
+        style=" height: 400px;background: #ffffff;
+        ">
+    <div class="col-md-6 pb-5 pt-4" style="background-color:#CEB0A1;border-radius: 20px; margin-bottom: 2em; margin-top: 1em;">
+            <div
+            class="content-section mb-2 mt-4"
+            style="
+              height: 100px;
+              border-radius: 15px;
+            "
+          >
+            <li class="list-group-item list-group-item-light">
+              <a style="text-decoration: none; color: #A4684B" href="#">USERS</a>
+            </li>
+          </div>
+  
+          <div
+            class="content-section mb-2 mt-1"
+            style="
+              height: 100px;
+              border-radius: 15px;
+            "
+          >
+            <li class="list-group-item list-group-item-light">
+              <a style="text-decoration: none; color: #A4684B" href="#"
+                >RESERVATIONS</a
+              >
+            </li>
+          </div>
+          <div
+            class="content-section mb-2 mt-1"
+            style="
+              height: 100px;
+              border-radius: 15px;
+            "
+          >
+            <li class="list-group-item list-group-item-light">
+              <a style="text-decoration: none; color: #A4684B" href="#"
+                >ADD DEALS</a
+              >
+            </li>
+          </div>
+          <div
+            class="content-section mb-3 mt-1"
+            style="
+              height: 1O0px;
+              border-radius: 15px;
+            "
+          >
+            <li class="list-group-item list-group-item-light">
+              <a style="text-decoration: none; color: #A4684B" href="#"
+                >REVIEWS</a
+              >
+            </li>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="col-md-8 mb-5 pt-2 ml-5" style="background:#CEB0A1; border-radius: 20px; height:200px">
+            <div class="row" style="height:50px">
+
+
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <!--IMAGE GOES HERE-->
+                </div>
+                <div class="col">
+                    <h2 class="account-heading" style="color: #fff; font-size:20px; font-weight:bold">
+                        {{ current_user.username }}
+                      </h2>
+                      <h2 class="account-heading" style= "color: #fff; font-size:20px; font-weight:bold" >
+                        {{ current_user.email }}
+                      </h2>
+                </div>
+            </div>
+        </div>
+        <!--DEALS-->
+        <h3 class="text-center" style="color:#A4684B; font-weight: bold;">CURRENT DEALS</h3>
+        <div
+          class="mb-5 pt-2"
+          style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; background:#ceb0a152; border-radius: 20px; height:200px"
+        
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                {% for reservation in reservations %}
+                <div class="card">
+                    <div class="card-body">Price: {{ deal.dealPrice }}</div>
+                </div>
+            {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Reservations-->
+       
+        <!--End Reservations-->
+      </div>
+    </div>
+  </div>
 
 {% endblock%}
