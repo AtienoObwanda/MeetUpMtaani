@@ -26,7 +26,7 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username = form.username.data).first()
+        user = User.query.filter_by(email = form.email.data).first()
         if user and bcrypt.check_password_hash(user.password,form.password.data):
             login_user(user,form.remember.data)
             return redirect(request.args.get('next') or url_for('main.index'))
@@ -73,16 +73,18 @@ def account():
         form.email.data = current_user.email # Populate user email on to the form
     image = url_for('static', filename='profile/' + current_user.image) # route for default profile picture
      
-    return render_template("auth/account.html", title='Account', image=image, form=form)
+    return render_template("usersTemplate/dashboard.html", title='Account', image=image, form=form)
 
 @auth.route('/reserve', methods=['GET', 'POST'])
 @login_required
 def reserve():
     form = ReservationForm()
     if form.validate_on_submit():
-        reservation = Reservation(fname=form.fname.data, lname=form.lname.data, email=form.email.data,
-                                    pnumber=form.pnumber.data,reserve=form.reserve.data)
+        reservation = Reservation(fname=form.fname.data, lname=form.lname.data, mDeal=form.mDeal.data,
+                                    pnumber=form.pnumber.data,reserveFrom=form.reserveFrom.data, 
+                                    reserveTo=form.reserveTo.data,address=form.address.data)
         db.session.add(reservation)
         db.session.commit()
         flash('Your reservation has been updated', 'success')
-    return redirect(url_for('main.index'))
+        return redirect(url_for('main.index'))
+    return render_template("usersTemplate/reservation.html", title='reserve', form=form)

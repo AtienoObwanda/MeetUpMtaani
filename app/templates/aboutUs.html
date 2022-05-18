@@ -1,6 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Meet Up Mtaani...</h1>
+<section>
+    <div class="container-fluid">
+        <img src="{{ url_for('static', filename='images/aboutUsBanner.png') }}" alt=""
+            style="width: 100%; height:100%;" />
+    </div>
+
+    <div class="container mt-5">
+        <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;">Our Background</h2>
+        <p>MeetUp Mtaani is a virtual vents platform, social network and community to have fun, stay fit and learn new
+            things. We're a small team with a huge passion for making a positive social difference, creating happiness,
+            wellness and belonging through purposeful events and community</p>
+    </div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <img src="{{ url_for('static', filename='images/vision.png') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col">
+                    <div class="card-block px-2">
+                        <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;">Our Vision</h2>
+                        <p>Our Vision is to perform and deliver excellent quality service to our clients. Providing them
+                            unforgettable travel,enjoyable, with gauranteed services that exceed their expectations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container mt-5">
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <img src="{{ url_for('static', filename='images/mission.png') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col">
+                    <div class="card-block px-2">
+                        <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;">Our Mission</h2>
+                        <p>Our Mission is to perform and deliver excellent quality service to our clients. Providing them
+                            unforgettable travel,enjoyable, with gauranteed services that exceed their expectations</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
 
 {% endblock%}

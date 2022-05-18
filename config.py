@@ -26,6 +26,8 @@ class Config:
 class ProdConfig(Config):
     pass
 
+DEBUG = True
+
 
 class DevConfig(Config):
     '''
@@ -41,3 +43,5 @@ config_options = {
 'development':DevConfig,
 'production':ProdConfig
 }
+
+DEBUG = True

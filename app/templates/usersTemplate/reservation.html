@@ -1,6 +1,145 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
 
-<h1>Meet Up Mtaani...</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <div clas="container">
+    <div class="row">
+      <div class="col-md-6">
+          <img src="{{ url_for('static', filename='images/reservationImg.png') }}" style="width: 100%; height:100%"/>
+      </div>
 
-{% endblock%}
+      <div class="col-md-6">
+        <div class="content" style="background-color: none;color:#A5694B">
+          <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+              <legend class="border-bottom-mb-4 mt-4">Reservation Information</legend>
+              <div class="dates">
+                <div class="form-group">
+                  {{ form.reserveFrom.label(class="form-control-label")}}
+                  {% if form.reserveFrom.errors %}
+                  {{ form.reserveFrom(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.reserveFrom.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  {{ form.reserveFrom(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+
+                <div class="form-group">
+                  {{ form.reserveTo.label(class="form-control-label")}}
+                  {% if form.reserveTo.errors %}
+                  {{ form.reserveTo(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.reserveTo.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  {{ form.reserveTo(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+              </div>  
+
+              <div class="form-group">
+                {{ form.mDeal.label(class="form-control-label")}}
+                {% if form.mDeal.errors %}
+                {{ form.mDeal(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.mDeal.errors %}
+                  <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+
+                {% else %}
+                {{ form.mDeal(class="form-control form-control-lg")}}
+                {% endif%}
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <legend class="border-bottom-mb-4 mt-4">Personal Details</legend>
+              
+              <div class="names">
+                <div class="form-group">
+                  {{ form.fname.label(class="form-control-label")}}
+                  {% if form.fname.errors %}
+                  {{ form.fname(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.fname.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  {{ form.fname(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+
+                <div class="form-group">
+                  {{ form.lname.label(class="form-control-label")}}
+                  {% if form.lname.errors %}
+                  {{ form.lname(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.lname.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  {{ form.lname(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+              </div>    
+
+              <div class="names">
+                <div class="form-group">
+                  {{ form.pnumber.label(class="form-control-label")}}
+                  {% if form.pnumber.errors %}
+                  {{ form.pnumber(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.pnumber.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  {{ form.pnumber(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+
+                <div class="form-group">
+                  {{ form.address.label(class="form-control-label")}}
+                  {% if form.address.errors %}
+                  {{ form.address(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.address.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  {{ form.address(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+              </div>    
+
+              <div class="text-muted text-center">
+                <p>CONFIRM RESERVATION</p>
+
+                {{ form.submit(class="btn mt-2 btn-outline-info") }}
+                  
+              </div>
+
+            </fieldset> 
+          </form>
+        </div>     
+      </div>
+    </div>
+  </div>    
+{% endblock %}  
