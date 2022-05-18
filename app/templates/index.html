@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Meet Up Mtaani...</h1>
+<div class="section1">
+    <div class="container-fluid">
+        <img src="{{ url_for('static', filename='images/mainimage.jpeg') }}" alt="" style="width: 100%; height:100%," />
+        <p> <button type="button" class="btn btn-light mb-5">Light</button> </p>
+    </div>
+
+    <div class="container mt-5">
+        <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700; font-size: 20px;">ABOUT US</h2>
+        <p>MeetUp is a community building app which gives people the opportunity to organise groups and host in-person
+            events for people with similar interest.</p>
+    </div>
+</div>
+
+<div class="section2">
+    <div class="container">
+        <h2> Meet Up Mtaani Deals
+    </div>
+</div>
 
 {% endblock%}
