@@ -1,7 +1,6 @@
 import os
 
 class Config:
-<<<<<<< HEAD
     '''
     Parent config class
     '''
@@ -22,14 +21,12 @@ class Config:
     def init_app(app):
         pass
 
-=======
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Gmwangi@localhost/mtaani'
->>>>>>> bca2cfc14080429877f7630b94df000c803cb4ea
 
 
 class ProdConfig(Config):
     pass
+
+DEBUG = True
 
 
 class DevConfig(Config):
@@ -38,9 +35,12 @@ class DevConfig(Config):
     '''
 # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
+
 DEBUG = True
 
 config_options = {
 'development':DevConfig,
 'production':ProdConfig
 }
+
+DEBUG = True
