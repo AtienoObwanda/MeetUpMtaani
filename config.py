@@ -5,8 +5,8 @@ class Config:
     Parent config class
     '''
     SECRET_KEY =os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    SQLALCHEMY_TRACK_MODIFICATIONS=True
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
+    SQLALCHEMY_TRACK_MODIFICATIONS=False
     # Mail confugurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -31,8 +31,8 @@ class DevConfig(Config):
     '''
     development class
     '''
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-
+# SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
 DEBUG = True
 
 config_options = {
