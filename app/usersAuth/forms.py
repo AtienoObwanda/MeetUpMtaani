@@ -68,7 +68,7 @@ class ProfileForm(FlaskForm):
             if user:
                 raise ValidationError('That email is taken. PLease choose a different one.')
 
-class Reservation(FlaskForm):
+class ReservationForm(FlaskForm):
     fname = StringField('First Name: ', validators=[DataRequired()])
     
     lname = StringField('Last Name: ', validators=[DataRequired()])
