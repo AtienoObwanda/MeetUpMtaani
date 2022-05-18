@@ -1,6 +1,7 @@
 import os
 
 class Config:
+<<<<<<< HEAD
     '''
     Parent config class
     '''
@@ -21,6 +22,10 @@ class Config:
     def init_app(app):
         pass
 
+=======
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Gmwangi@localhost/mtaani'
+>>>>>>> bca2cfc14080429877f7630b94df000c803cb4ea
 
 
 class ProdConfig(Config):

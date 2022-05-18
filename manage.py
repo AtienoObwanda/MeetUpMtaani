@@ -8,7 +8,7 @@ from app.models import User, Admin,Review,Reservation,Deals
 
 
 # App instance -> creating app instance
-app = create_app('production')
+app = create_app('development')
 
 manager = Manager(app)
 manager.add_command('server',Server)
