@@ -18,7 +18,7 @@
             "
           >
             <li class="list-group-item list-group-item-light">
-              <a style="text-decoration: none; color: #A4684B" href="#">USERS</a>
+              <a style="text-decoration: none; color: #A4684B" href="{{url_for('admin.viewUsers')}}">USERS</a>
             </li>
           </div>
   
@@ -30,7 +30,7 @@
             "
           >
             <li class="list-group-item list-group-item-light">
-              <a style="text-decoration: none; color: #A4684B" href="#"
+              <a style="text-decoration: none; color: #A4684B" href="{{url_for('admin.viewReservation')}}"
                 >RESERVATIONS</a
               >
             </li>
@@ -43,24 +43,12 @@
             "
           >
             <li class="list-group-item list-group-item-light">
-              <a style="text-decoration: none; color: #A4684B" href="#"
+              <a style="text-decoration: none; color: #A4684B" href="{{ url_for('admin.addDeal')}}"
                 >ADD DEALS</a
               >
             </li>
           </div>
-          <div
-            class="content-section mb-3 mt-1"
-            style="
-              height: 1O0px;
-              border-radius: 15px;
-            "
-          >
-            <li class="list-group-item list-group-item-light">
-              <a style="text-decoration: none; color: #A4684B" href="#"
-                >REVIEWS</a
-              >
-            </li>
-          </div>
+          
         </div>
       </div>
 

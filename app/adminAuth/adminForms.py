@@ -64,11 +64,11 @@ class UpdateAccountForm(FlaskForm):
 
 
 class AddDealForm(FlaskForm):
-    title = StringField('Post Title',validators=[DataRequired()])
+    title = StringField('Deal Title',validators=[DataRequired()])
 
-    picture= FileField('Update profile picture',validators=[FileAllowed(['jpg','png','jpeg'])])
+    picture= FileField('Deal picture',validators=[FileAllowed(['jpg','png','jpeg'])])
 
-    dealPrice = StringField('Post Title',validators=[DataRequired()])
+    dealPrice = StringField('Deal Price',validators=[DataRequired()])
 
     submit = SubmitField('Add Deal')
 
