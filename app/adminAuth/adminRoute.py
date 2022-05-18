@@ -16,7 +16,7 @@ from . import admin
 def viewUsers():
     users=User.query.all()
     
-    return  render_template("adminTemplate/users.html", title='Users')
+    return  render_template("adminTemplate/users.html", title='Users', users=users)
 
 
 
