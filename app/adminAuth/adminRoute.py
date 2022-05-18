@@ -16,20 +16,13 @@ from . import admin
 def viewUsers():
     users=User.query.all()
     
-    return  render_template("adminTemplate/users.html", title='Users')
+    return  render_template("adminTemplate/users.html", title='Users', users=users)
 
-
-
-@admin.route('/deals' , methods=['GET','POST'])
-@login_required 
-def viewDeals():
-    deals = Deals.query.all()
-    return  render_template("adminTemplate/deals.html", title='Users')
 
 
 @admin.route('/reservations' , methods=['GET','POST'])
 @login_required 
-def reservation():
+def viewReservation():
     reservations=Reservation.query.all()
     return  render_template("adminTemplate/reservation.html", title='Users')
 
@@ -63,7 +56,7 @@ def adminRegister():
 @admin.route('/login',methods=['GET', 'POST'])
 def adminLogin():
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(url_for('admin.adminDashboard'))
     form=LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -121,4 +114,29 @@ def adminDashboard():
     return render_template("adminTemplate/adminDashboard.html", title='Account', form=form)
 
 
+def save_picture(form_picture): # saving image
+    random_hex = secrets.token_hex(8) # geneates new name for the picture
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join('app/static/profile', picture_fn)
     
+    #image resizing
+    output_size=(125,125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+
+    i.save(picture_path) # resized image
+
+    return picture_fn   
+
+@admin.route('/newDeal' , methods=['GET','POST'])
+@login_required 
+def addDeal():
+        form = AddDealForm
+        if form.validate_on_submit():
+            deal = Deals( title=form.title.data, dealPrice = form.dealPrice.data, picture = form.picture.data)
+            db.session.add()
+            db.session.commit()
+            flash('Deal added', 'success')
+            return redirect(url_for('main.index'))
+        return render_template("adminTemplate/newDeal.html", title='New Deal', form=form)

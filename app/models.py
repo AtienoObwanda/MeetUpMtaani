@@ -19,7 +19,6 @@ class Admin(UserMixin, db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     adminImage = db.Column(db.String(120), nullable=False, default='adminDefault.jpg')
     password = db.Column(db.String(60),nullable=False)
-    deal = db.relationship('Deals', backref='admin', lazy='dynamic')
 
     def __repr__(self):
         return f'Admin({self.username},{self.email},{self.image})'
@@ -45,10 +44,9 @@ class Deals (db.Model):
     dealPrice = db.Column(db.Integer, unique=False, nullable=False)
     title = db.Column(db.String(100), unique=True, nullable=False)
     image = db.Column(db.String(120), nullable=False)
-    admin_id = db.Column(db.Integer,db.ForeignKey('admin.id'),nullable=False) #user
 
 def __repr__(self):
-    return f"Deals({self.title},{self.image})"
+    return f"Deals({self.title},{self.dealPrice},{self.image})"
 
 #User Reservation:
 class Reservation (db.Model):
