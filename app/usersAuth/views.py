@@ -60,18 +60,20 @@ def account():
     form = ProfileForm()
     if form.validate_on_submit():
         if form.picture.data:
-            picture_file = save_picture(form.picture.data)
+            picture_file = save_picture(form.picture.data) # seting picture 
             current_user.image = picture_file
+
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
-        flash('Your account has been updated.','success')
+        flash(f'Account details for {form.username.data} successfully updated!', 'sucess')
         return redirect(url_for('auth.account'))
-    elif request.method =='GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    image_file = url_for('static',filename='images/' + current_user.image)
-    return render_template('usersTemplate/dashboard.html', title='Account', image = image, form = form)
+    elif request.method == 'GET':
+        form.username.data = current_user.username # Populate user username on to the form
+        form.email.data = current_user.email # Populate user email on to the form
+    image = url_for('static', filename='profile/' + current_user.image) # route for default profile picture
+     
+    return render_template("auth/account.html", title='Account', image=image, form=form)
 
 @auth.route('/reserve', methods=['GET', 'POST'])
 @login_required
