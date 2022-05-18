@@ -1,8 +1,31 @@
 import os
 
 class Config:
+<<<<<<< HEAD
+    '''
+    Parent config class
+    '''
+    SECRET_KEY =os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
+    SQLALCHEMY_TRACK_MODIFICATIONS=False
+    # Mail confugurations
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS=True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    SUBJECT_PREFIX = 'PITCH SPLASH!'
+    SENDER_EMAIL = 'splashpitch@gmail.com'
+
+
+    @staticmethod
+    def init_app(app):
+        pass
+
+=======
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Gmwangi@localhost/mtaani'
+>>>>>>> bca2cfc14080429877f7630b94df000c803cb4ea
 
 
 class ProdConfig(Config):
@@ -10,7 +33,12 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-    DEBUG = True
+    '''
+    development class
+    '''
+# SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/meetup'
+DEBUG = True
 
 config_options = {
 'development':DevConfig,
