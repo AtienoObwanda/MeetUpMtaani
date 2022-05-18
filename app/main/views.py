@@ -14,7 +14,7 @@ def index():
     title = "Home- Welcome to the most reliable meetup website "
 
     
-    return render_template('index.html', title=title,  )
+    return render_template('index.html', title=title )
 
 @main.route('/aboutUs')
 def aboutUs():
