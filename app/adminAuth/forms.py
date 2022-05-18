@@ -29,5 +29,12 @@ class SignupForm(FlaskForm):
             raise ValidationError('Admin email already in use!')
 
 class LoginForm(FlaskForm):
-    pass
+    email = StringField('Email',validators=[DataRequired(),Email()])
+
+    password = PasswordField('Password',
+                    validators=[DataRequired(),Length(min=6,max=12)])
+
+    remember = BooleanField('Remember Me')
+    
+    submit = SubmitField('Login')
 

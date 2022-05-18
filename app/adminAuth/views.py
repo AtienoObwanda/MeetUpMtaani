@@ -29,9 +29,10 @@ def adminSignup():
 
 @admin.route('/login',methods=['GET', 'POST'])
 def adminLogin():
+
 #     if current_user.is_authenticated:
 #         return redirect(url_for('main.index'))
-#     form = LoginForm()
+    form = LoginForm()
 
 #     if form.validate_on_submit():
 #         admin = Admin.query.filter_by(email=form.email.data).first()
@@ -43,4 +44,4 @@ def adminLogin():
 #             return redirect(next_page) if next_page else redirect(url_for('main.index')) # redirects to requested page after loggin in if it exists... if none, redirects to home page
 #         else:
 #             flash('Login Failed. Kindly check your email and password then try again','danger')
-    return render_template("adminTemplate/login.html",title='Admin-Login')
+    return render_template("adminTemplate/login.html",form=form,title='Admin-Login')
