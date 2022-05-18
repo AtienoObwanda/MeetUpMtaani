@@ -20,16 +20,9 @@ def viewUsers():
 
 
 
-@admin.route('/deals' , methods=['GET','POST'])
-@login_required 
-def viewDeals():
-    deals = Deals.query.all()
-    return  render_template("adminTemplate/deals.html", title='Users')
-
-
 @admin.route('/reservations' , methods=['GET','POST'])
 @login_required 
-def reservation():
+def viewReservation():
     reservations=Reservation.query.all()
     return  render_template("adminTemplate/reservation.html", title='Users')
 
@@ -63,7 +56,7 @@ def adminRegister():
 @admin.route('/login',methods=['GET', 'POST'])
 def adminLogin():
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(url_for('admin.adminDashboard'))
     form=LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
