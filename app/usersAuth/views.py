@@ -73,7 +73,7 @@ def account():
         form.email.data = current_user.email # Populate user email on to the form
     image = url_for('static', filename='profile/' + current_user.image) # route for default profile picture
      
-    return render_template("auth/account.html", title='Account', image=image, form=form)
+    return render_template("usersTemplate/dashboard.html", title='Account', image=image, form=form)
 
 @auth.route('/reserve', methods=['GET', 'POST'])
 @login_required

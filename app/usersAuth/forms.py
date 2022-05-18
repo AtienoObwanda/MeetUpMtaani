@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField,SelectedField
+from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField,SelectField
 from wtforms.validators import DataRequired,Email,EqualTo, ValidationError
 from app.models import *
 from flask_login import current_user
@@ -81,7 +81,8 @@ class ReservationForm(FlaskForm):
     
     reserveTo = StringField('Date To:', validators=[DataRequired()])
     
-    mDeal = SelectedField('Mtaani Deal:' ,validators[DataRequired()])
-    
+    mDeal = SelectField('Mtaani Deal', choices=[('Hiking', 'Hiking'), (
+        'Dinner', 'Dinner'), ('Working Space', 'Working Space')], validators=[DataRequired()])
+
     submit = SubmitField('Reserve')
         
