@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField
+from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField
 from wtforms.validators import DataRequired,Email,EqualTo, ValidationError
 from app.models import *
 from flask_login import current_user
+from datetime import datetime
 
 
 class RegistrationForm(FlaskForm):
@@ -38,10 +39,6 @@ class LoginForm(FlaskForm):
     
     submit = SubmitField('Sign In')
     
-class NewDealForm(FlaskForm):
-    title = StringField('The Title:', validators = [DataRequired()])
-    content = TextAreaField('Your Content', validators = [DataRequired()])
-    submit = SubmitField('Post')
     
     
 class ReviewForm(FlaskForm):
@@ -80,9 +77,9 @@ class Reservation(FlaskForm):
     
     address = StringField('Address: ', validators=[DataRequired()])
     
-    pnumber = Integer('Mobile Number: ',validators=[DataRequired()])
+    pnumber = IntegerField('Mobile Number: ',validators=[DataRequired()])
     
-    reserve = DateTime('Reservation:', validators=[DataRequired()])
+    reserve = StringField('Reservation:', validators=[DataRequired()])
     
     submit = SubmitField('Reserve')
         

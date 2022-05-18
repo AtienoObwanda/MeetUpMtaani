@@ -61,11 +61,11 @@ def account():
 @auth.route('/reserve', methods=['GET', 'POST'])
 @login_required
 def reserve():
-    form = ReserveForm():
-        if form.validate_on_submit():
-            reservation = Reservation(fname=form.fname.data, lname=form.lname.data, email=form.email.data,
+    form = ReservationForm()
+    if form.validate_on_submit():
+        reservation = Reservation(fname=form.fname.data, lname=form.lname.data, email=form.email.data,
                                     pnumber=form.pnumber.data,reserve=form.reserve.data)
-            db.session.add(reservation)
-            db.session.commit()
-            flash('Your reservation has been updated', 'success')
+        db.session.add(reservation)
+        db.session.commit()
+        flash('Your reservation has been updated', 'success')
     return redirect(url_for('main.index'))
