@@ -11,23 +11,23 @@
             <ul class="navbar-nav ps-5">
                 <li class="nav-item active">
                     <a style="color:#A5694B; font-family: Inter; font-weight: 500;font-size: 20px;"
-                        class="nav-link text-uppercase" href="">Home <span class="sr-only">(current)</span></a>
+                        class="nav-link text-uppercase" href="{{url_for('main.index')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li>
                     <a style="color:#A5694B; font-family: Italiana; font-weight: 500;font-size: 20px;"
-                        class="nav-link text-uppercase" href="" {{url_for('main.aboutUs')}}"">About Us</a>
+                        class="nav-link text-uppercase" href="{{url_for('main.aboutUs')}}">About Us</a>
                 </li>
                 <li>
                     <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                        class="nav-link text-uppercase" href="">Our Deals</a>
+                        class="nav-link text-uppercase" href="{{url_for('main.deals')}}">Our Deals</a>
                 </li>
             </ul>
         </div>
         <div class="navbar-nav">
             <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                class="nav-item nav-link text-uppercase" href="">Sign Up</a>
+                class="nav-item nav-link text-uppercase" href="{{url_for('auth.register')}}">Sign Up</a>
             <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                class="nav-item nav-link text-uppercase" href="">Login</a>
+                class="nav-item nav-link text-uppercase" href="{{ url_for('auth.login') }}">Login</a>
             <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
                 class="nav-item nav-link text-uppercase" href="">Admin</a>
         </div>
