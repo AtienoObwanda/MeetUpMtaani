@@ -81,8 +81,8 @@ class ReservationForm(FlaskForm):
     
     reserveTo = StringField('Date To:', validators=[DataRequired()])
     
-    mDeal = SelectField('Mtaani Deal', choices=[('Hiking', 'Hiking'), (
-        'Dinner', 'Dinner'), ('Working Space', 'Working Space')], validators=[DataRequired()])
+    mDeal = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
+        'Pick In a Nick', 'Pick In a Nick'), ('Working Space', 'Working Space')], validators=[DataRequired()])
 
     submit = SubmitField('Reserve')
         

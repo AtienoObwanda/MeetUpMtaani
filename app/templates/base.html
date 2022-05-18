@@ -13,7 +13,7 @@
   <!--Custom CSS-->
   <link rel="stylesheet" type="text/scss" href="{{url_for('static',filename='css/styles.scss') }}">
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css') }}">
-
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
 
   <title>Meet Up Mtaani</title>
 </head>
@@ -25,10 +25,15 @@
   <!-- Content block -->
   {% block content %}
 
+
+
+
+
+  
   {% endblock content%}
 
   {% block footer %}
-  <div class="card-footer text-center bg-dark mt-5">
+  <div class="card-footer text-center bg-dark mt-5 mb-0">
     <p style="font-family: Italiana;" class="text-light">&copy;2022 MeetUp Mtaani All Rights Reserved.</p>
   </div>
   {% endblock %}

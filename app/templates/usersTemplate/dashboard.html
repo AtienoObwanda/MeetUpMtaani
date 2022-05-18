@@ -1,81 +1,91 @@
-{% extends "base.html" %}
+{% extends "user.html" %}
 {% block content %}
+<div class="container">
+  <div class="mb-5 pt-2" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    <div class="row pt-3">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+         <div class="media">
+             <div class="row">
+                 <div class="col"></div>
+                 <div class="col ms-3">
+                     <img class="rounded-circle account-img" src="{{ url_for('static', filename='images/default.png') }} ">
+                 </div>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-  <div clas="container">
-    <div class="row">
-      <div class="col-md-6">
-          <img src="{{ url_for('static', filename='images/vision.png') }}" style="width: 100%; height:100%"/>
-      </div>
+                 <div class="col pt-4 ">
+                     <div class="media-body">
+                         <h2 class="account-heading" style="color: #fea150;">{{ current_user.username }}</h2>
+                         <p class="text-secondary">{{ current_user.email }}</p>
+                     </div>
+                 </div>
+                 <div class="col"></div>
+             </div>
+             
+             </div>
+                 <!--Form for updating the account-->
+             <form method="POST" action="" enctype="multipart/form-data">
+                 {{ form.hidden_tag() }}
+                 <fieldset class="form-group">
+                 <legend class="border-bottom mb-4 text-center">Update Account Info</legend>
+                     <div class="form-group mb-2">
+                         {{ form.username.label(class="form-control-label") }}
 
-      <div class="col-md-6" styel="background-color:FFFFFF">
-
-        <div class="form-group">
-          {{ form.username.label(class="form-control-label")}}
-          {% if form.username.errors %}
-          {{ form.username(class="form-control-lg is-invalid") }}
-          <div class="invalid-feedback">
-            {% for error in form.username.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-
-          {% else %}
-          {{ form.username(class="form-control form-control-lg")}}
-          {% endif%}
+                         {% if form.username.errors %}
+                             {{ form.username(class="form-control form-control-lg is-invalid") }}
+                             <div class="invalid-feedback">
+                                 {% for error in form.username.errors %}
+                                     <span>{{ error }}</span>
+                                 {% endfor %}
+                             </div>
+                         {% else %}
+                             {{ form.username(class="form-control form-control-lg") }}
+                         {% endif %}
+                     </div>
+                     <div class="form-group mb-2">
+                         {{ form.email.label(class="form-control-label") }}
+                         {% if form.email.errors %}
+                             {{ form.email(class="form-control form-control-lg is-invalid") }}
+                             <div class="invalid-feedback">
+                                 {% for error in form.email.errors %}
+                                     <span>{{ error }}</span>
+                                 {% endfor %}
+                             </div>
+                         {% else %}
+                             {{ form.email(class="form-control form-control-lg") }}
+                         {% endif %}
+                     </div>
+                     <div class="form-group mb-2">
+                         {{ form.picture.label }} </br>
+                         {{ form.picture(class="form-control-form mt-2")}}
+                         {% if form.picture.errors %}
+                             {% for error in form.picture.errors %}
+                                 <span class="text-danger">{{ error }}</span></br>
+                             {% endfor %}
+                         {% endif %}
+                     </div>
+                     
+                 </fieldset>
+                 <div class="form-group mb-2">
+                     <div class="row">
+                         <div class="col"></div>
+                         <div class="col mb-3">
+                             {{ form.submit(class="btn btn-outline-info button-17") }}
+                         </div>
+                         <div class="col"></div>
+                     </div>
+                 </div>
+             </form>
         </div>
-
-        <div class="form-group">
-          {{ form.email.label(class="form-control-label")}}
-          {% if form.email.errors %}
-          {{ form.email(class="form-control-lg is-invalid") }}
-          <div class="invalid-feedback">
-            {% for error in form.email.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-
-          {% else %}
-          {{ form.email(class="form-control form-control-lg")}}
-          {% endif%}
-        </div>
-
-        </div class="form-group">
-
-          {{ form.submit(class="btn mt-2 btn-outline-info") }}
-
-        </div>
-
-      </div>
-        
+        <div class="col-sm-2"></div>
     </div>
-
-    <div class="row">
-      <div class="">
-        <small class="text-muted text-center">
-          Add Reservation <a class="ml-2" href="{{ url_for('auth.reserve') }}"
-          >Log in</a>
-        </small>
-
-      </div>
-      <div class="">
-        <small class="text-muted text-center">
-          Delete Reservation <a class="ml-2" href="{{ url_for('auth.reserve') }}"
-          >Log in</a>
-        </small>
-        
-      </div>
-      <div class="">
-        <small class="text-muted text-center">
-          Edit Reservation <a class="ml-2" href="{{ url_for('auth.reserve') }}"
-          >Log in</a>
-        </small>
-        
-      </div>
-
-
-    </div>  
-
-  </div>  
-
-{% endblock %}
+</div>        
+ {% for reservation in reservation %}
+     <div class="row">
+         <div class="col-sm-2"></div>
+         <div class="col-sm-8">
+             
+         </div>
+         <div class="col-sm-2"> </div>
+     </div>
+ {% endfor %}   
+{% endblock content%}
