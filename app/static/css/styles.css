@@ -5,15 +5,11 @@
     font-family: "Montserrat", sans-serif;
 }
 
-body {
-    overflow-x: none !important;
+html, body  {
+    border: 0px;
+    margin: 0px auto;
 }
 
-
-
-.contact{
-    background-color: #A5694B;
-}
 
 
 

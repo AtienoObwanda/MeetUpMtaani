@@ -1,118 +1,131 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="section1">
-    <div class="container-fluid">
-        <img src="{{ url_for('static', filename='images/heroImg.png') }}" alt="" style="width: 100%; height:100%;" />
-        <p style="margin-top:-80px; color:#A5694B;" <button type="button" class="btn btn-light mb-5">View Deals</button>
-        </p>
-    </div>
 
-    <div class="container">
-        <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;">About Us
-        </h2>
-        <p>MeetUp is a community building app which gives people the opportunity to organise groups and host in-person
-            events for people with similar interest.</p>
-    </div>
+<div style="background-color:#A5694B" class="container-fluid">
+    <img src="{{ url_for('static', filename='images/heroImg.png') }}" alt=""
+        style="width: 100%; height:100%; padding:0px; margin:0px;" />
+    <a style="margin-top:-80px; color:#A5694B;" <button type="button" class="btn btn-light mb-5"
+        href="{{url_for('main.deals')}}">View Deals</button>
+    </a>
+</div>
+
+<div class="container mt-3">
+    <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;">About Us
+    </h2>
+    <p>MeetUp is a community building app which gives people the opportunity to organise groups and host in-person
+        events for people with similar interest.</p>
+</div>
 </div>
 
 <div class="section2 mt-5">
     <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;"> Meet Up Mtaani Deals</h2>
-   <div class="container py-5">
-<div class="row row_branchen">
-  
-  
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-  <div class="card">
-    <a href="">
-      <div class="image__wrapper">
-        <div class="card__shadow--1"></div>
-          <img class="card-img-top" src="{{url_for('static',filename='images/landing1.png') }}" alt="Angebote - Verkaufsautomaten">
-      </div>
-        <div class="card-body pb-4">
-          <h3 class="card-title">Workspace</h3>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="container py-5">
+        <div class="row row_branchen">
+
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="card">
+                    <a href="">
+                        <div class="image__wrapper">
+                            <div class="card__shadow--1"></div>
+                            <img class="card-img-top" src="{{url_for('static',filename='images/landing1.png') }}"
+                                alt="Angebote - Verkaufsautomaten">
+                        </div>
+                        <div class="card-body pb-4">
+                            <h3 class="card-title">Workspace</h3>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="card">
+                    <a href="">
+                        <div class="image__wrapper">
+                            <div class="card__shadow--1"></div>
+                            <img class="card-img-top" src="{{url_for('static',filename='images/landing2.png') }}"
+                                alt="Angebote Wasserspender">
+                        </div>
+                        <div class="card-body pb-4">
+                            <h3 class="card-title">ChillSpace</h3>
+                            <p class="card-text">Choose from our range of chill spots rooms that people can use to relax
+                                in, for example at a dance club or office: The club has three rooms, a chill room, and
+                                two dance.</p>
+                        </div>
+
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="card">
+                    <a href="">
+                        <div class="image__wrapper">
+                            <div class="card__shadow--1"></div>
+                            <img class="card-img-top" src="{{url_for('static',filename='images/landing3.png') }}"
+                                alt="Angebote Wasserspender">
+                        </div>
+                        <div class="card-body pb-4">
+                            <h3 class="card-title">Picnic</h3>
+                            <p class="card-text">Choose from our range of picnic sites at affordable prices carefully
+                                selected within serene enviroments.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-      </a>
-  </div>
-</div>
-  
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-  <div class="card">
-    <a href="">
-      <div class="image__wrapper">
-        <div class="card__shadow--1"></div>
-          <img class="card-img-top" src="{{url_for('static',filename='images/landing2.png') }}"alt="Angebote Wasserspender">
-      </div>
-      <div class="card-body pb-4">
-          <h3 class="card-title">ChillSpace</h3>
-          <p class="card-text">Choose from our range of chill spots rooms that people can use to relax in, for example at a dance club or office: The club has three rooms, a chill room, and two dance.</p>
+
+
+        <div class="container mt-5">
+            <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;"> What our clients say about us...</h2>
+            <div class="row text-center">
+
+                <!-- Team item -->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                            src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100"
+                            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">What you
+                            see is what you get</span>
+                    </div>
+                </div><!-- End -->
+
+                <!-- Team item -->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                            src="https://bootstrapious.com/i/snippets/sn-team/teacher-2.jpg" alt="" width="100"
+                            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">Highly recommed
+                            will definetly book again</span>
+
+                    </div>
+                </div><!-- End -->
+
+                <!-- Team item -->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                            src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100"
+                            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Tom Sunderland</h5><span class="small text-uppercase text-muted">Got value for
+                            every dime I spent</span>
+
+                    </div>
+                </div><!-- End -->
+
+                <!-- Team item -->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                            src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100"
+                            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">John Tarly</h5><span class="small text-uppercase text-muted">What you see is
+                            what you get</span>
+                    </div>
+                </div><!-- End -->
+            </div>
         </div>
-        
-      </a>
-  </div>
-</div>
-  
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-  <div class="card">
-    <a href="">
-      <div class="image__wrapper">
-        <div class="card__shadow--1"></div>
-          <img class="card-img-top" src="{{url_for('static',filename='images/landing3.png') }}" alt="Angebote Wasserspender">
-      </div>
-        <div class="card-body pb-4">
-          <h3 class="card-title">Picnic</h3>
-          <p class="card-text">Choose from our range of picnic sites at affordable prices carefully selected within serene enviroments.</p>
-        </div>
-      </a>
-  </div>
-</div>
-</div>
 
 
-<div class="container mt-5">
-    <h2 style="color:#A5694B; font-family: Italiana; font-weight: 700;"> What our clients say about us...</h2>
-    <div class="row text-center">
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">What you see is what you get</span>
-            </div>
-        </div><!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-2.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">Highly recommed will definetly book again</span>
-    
-            </div>
-        </div><!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Tom Sunderland</h5><span class="small text-uppercase text-muted">Got value for every dime I spent</span>
-    
-            </div>
-        </div><!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">John Tarly</h5><span class="small text-uppercase text-muted">What you see is what you get</span>
-            </div>
-        </div><!-- End -->
-    </div>
-</div>
-
-
-
-<section3>
-    <div class="contact">
-    </div>
-    </section3>
-    <div class="card-footer text-center bg-dark">
-    <p style="font-family: Italiana;" class="text-light">&copy;2022 MeetUp Mtaani All Rights Reserved.</p>
-  </div>
-{% endblock%}
+        {% endblock%}
