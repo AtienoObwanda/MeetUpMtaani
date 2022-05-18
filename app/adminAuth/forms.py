@@ -27,3 +27,7 @@ class SignupForm(FlaskForm):
         admin = Admin.query.filter_by(email=email.data).first()
         if admin:
             raise ValidationError('Admin email already in use!')
+
+class LoginForm(FlaskForm):
+    pass
+

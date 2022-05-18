@@ -18,7 +18,7 @@ class Admin(UserMixin, db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     adminImage = db.Column(db.String(120), nullable=False, default='default.jpg')
     password = db.Column(db.String(60),nullable=False)
-    deal = db.relationship('Deal', backref='admin', lazy='dynamic')
+    deal = db.relationship('Deals', backref='admin', lazy='dynamic')
 
     def __repr__(self):
         return f'Admin({self.username},{self.email},{self.image})'
