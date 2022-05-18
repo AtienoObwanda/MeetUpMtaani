@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField
+from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField,SelectedField
 from wtforms.validators import DataRequired,Email,EqualTo, ValidationError
 from app.models import *
 from flask_login import current_user
@@ -31,7 +31,7 @@ class RegistrationForm(FlaskForm):
     
     
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email:', validators=[DataRequired()])
     
     password = PasswordField('Password', validators=[DataRequired()])
     
@@ -68,18 +68,20 @@ class ProfileForm(FlaskForm):
             if user:
                 raise ValidationError('That email is taken. PLease choose a different one.')
 
-class Reservation(FlaskForm):
+class ReservationForm(FlaskForm):
     fname = StringField('First Name: ', validators=[DataRequired()])
     
     lname = StringField('Last Name: ', validators=[DataRequired()])
-    
-    email = StringField('Email: ', validators=[DataRequired(), Email()])
     
     address = StringField('Address: ', validators=[DataRequired()])
     
     pnumber = IntegerField('Mobile Number: ',validators=[DataRequired()])
     
-    reserve = StringField('Reservation:', validators=[DataRequired()])
+    reserveFrom = StringField('Date From:', validators=[DataRequired()])
+    
+    reserveTo = StringField('Date To:', validators=[DataRequired()])
+    
+    mDeal = SelectedField('Mtaani Deal:' ,validators[DataRequired()])
     
     submit = SubmitField('Reserve')
         
