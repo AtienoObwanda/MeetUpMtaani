@@ -7,13 +7,13 @@ from flask_mail import Mail
 
 
 
+
 from config import config_options
 
 # Initializing extensions
 db = SQLAlchemy()
 bcrypt = Bcrypt() # Password encryption 
 mail = Mail() 
-
 
 
 # Login manager
@@ -38,6 +38,7 @@ def create_app(config_name):
     db.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
+
 
     # Adding the main blue print
     from .main import main as main_blueprint
