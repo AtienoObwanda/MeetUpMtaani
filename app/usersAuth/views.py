@@ -1,3 +1,4 @@
+import os
 from flask import abort,request,redirect, render_template, url_for,flash
 from flask_login import login_user,current_user, logout_user, login_required
 import secrets
@@ -38,6 +39,20 @@ def logout():
     logout_user()
     return redirect(url_for('main.index'))
 
+def save_picture(form_picture): # saving image
+    random_hex = secrets.token_hex(8) # geneates new name for the picture
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join('app/static/profile', picture_fn)
+    
+    #image resizing
+    output_size=(125,125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+
+    i.save(picture_path) # resized image
+
+    return picture_fn
 
 @auth.route('/account', methods=['GET', 'POST'])
 @login_required
