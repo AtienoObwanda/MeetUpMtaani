@@ -37,7 +37,7 @@ class Reservation (db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) 
 
 def __repr__(self):
-    return f"Reservation({self.firstName},{self.lastName},{self.address}, {self.pNumber},{self.checkin},{self.checkout},{self.deals})"
+    return f"Reservation({self.numberOfPeople}, {self.deals},{self.user_id})"
 
 # Comment
 class Review(db.Model):

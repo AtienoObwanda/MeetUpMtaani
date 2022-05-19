@@ -33,72 +33,37 @@
           </fieldset>
 
           <fieldset class="form-group">
-            <legend class="border-bottom-mb-4 mt-4 text-center">
-              Personal Details
-            </legend>
 
-            <div class="names">
-              <div class="form-group">
-                {{ form.firstName.label(class="form-control-label")}} {% if
-                form.firstName.errors %} {{
-                form.firstName(class="form-control-lg is-invalid") }}
-                <div class="invalid-feedback">
-                  {% for error in form.firstName.errors %}
-                  <span>{{ error }}</span>
-                  {% endfor %}
-                </div>
-
-                {% else %} {{ form.firstName(class="form-control form-control-lg")}} {% endif%}
-              </div>
-
-              <div class="form-group">
-                {{ form.lastName.label(class="form-control-label")}} {% if
-                form.lastName.errors %} {{ form.lastName(class="form-control-lg
-                is-invalid") }}
-                <div class="invalid-feedback">
-                  {% for error in form.lastName.errors %}
-                  <span>{{ error }}</span>
-                  {% endfor %}
-                </div>
-
-                {% else %} {{ form.lastName(class="form-control form-control-lg")}}
-                {% endif%}
-              </div>
             </div>
 
             <div class="names">
+
               <div class="form-group">
-                {{ form.pNumber.label(class="form-control-label")}} {% if
-                form.pNumber.errors %} {{ form.pNumber(class="form-control-lg
+                {{ form.numberOfPeople.label(class="form-control-label")}} {% if
+                form.numberOfPeople.errors %} {{ form.numberOfPeople(class="form-control-lg
                 is-invalid") }}
                 <div class="invalid-feedback">
-                  {% for error in form.pNumber.errors %}
+                  {% for error in form.numberOfPeople.errors %}
                   <span>{{ error }}</span>
                   {% endfor %}
                 </div>
 
-                {% else %} {{ form.pNumber(class="form-control
+                {% else %} {{ form.numberOf(class="form-control
                 form-control-lg")}} {% endif%}
               </div>
 
               <div class="form-group">
-                {{ form.address.label(class="form-control-label")}} {% if
-                form.address.errors %} {{ form.address(class="form-control-lg
-                is-invalid") }}
-                <div class="invalid-feedback">
-                  {% for error in form.address.errors %}
-                  <span>{{ error }}</span>
-                  {% endfor %}
-                </div>
+                {%for reservation in reservation %} 
+                  <div>
 
-                {% else %} {{ form.address(class="form-control
-                form-control-lg")}} {% endif%}
+                    {% if current_user.id == reservation.user.id %}
+                    {{(comment_id=comment.id) }}
+                </div>
+                {% endif %}
               </div>
             </div>
 
             <div class="text-muted text-center">
-              <!-- <p>CONFIRM RESERVATION</p> -->
-
               {{ form.submit(class="btn mt-2 btn-outline-info button-17") }}
             </div>
           </fieldset>

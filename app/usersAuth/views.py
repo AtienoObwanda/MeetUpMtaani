@@ -72,7 +72,7 @@ def account():
         form.username.data = current_user.username # Populate user username on to the form
         form.email.data = current_user.email # Populate user email on to the form
     image = url_for('static', filename='profile/' + current_user.image) # route for default profile picture
-     
+    
     return render_template("usersTemplate/dashboard.html", title='Account', image=image, form=form)
 
 @auth.route('/reserve', methods=['GET', 'POST'])
@@ -80,8 +80,8 @@ def account():
 def reserve():
     form = ReservationForm()
     if form.validate_on_submit():
-        reservation = Reservation(firstName=form.firstName.data, lastName=form.lastName.data, deals=form.deals.data,
-                                user_id = current_user.id, pNumber=form.pNumber.data, address=form.address.data)
+        reservation = Reservation(deals=form.deals.data,
+                                user_id = current_user.id, numberOfPeople=form.numberOfPeople.data)
         db.session.add(reservation)
         db.session.commit()
         flash('Your reservation has been updated', 'success')

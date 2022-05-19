@@ -71,13 +71,8 @@ class ProfileForm(FlaskForm):
                 raise ValidationError('That email is taken. PLease choose a different one.')
 
 class ReservationForm(FlaskForm):
-    firstName = StringField('First Name: ', validators=[DataRequired()])
+    numberOfPeople = IntegerField('Number of People: ', validators=[DataRequired()])
     
-    lastName = StringField('Last Name: ', validators=[DataRequired()])
-    
-    address = StringField('Address: ', validators=[DataRequired()])
-    
-    pNumber = IntegerField('Mobile Number: ',validators=[DataRequired()])
     
     # checkin = DateField('Checkin From:', format='%Y=%m-%d')
     # checkout = DateField('Checkout On:', format='%Y=%m-%d')
