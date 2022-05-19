@@ -1,9 +1,8 @@
 {% extends "user.html" %}
 {% block content %}
 <div class="container">
-  <div class="mb-5 pt-2" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+  <div class="mb-5 pt-2" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius:10px">
     <div class="row pt-3">
-        <div class="col-sm-2"></div>
         <div class="col-sm-8">
          <div class="media">
              <div class="row">
@@ -14,7 +13,7 @@
 
                  <div class="col pt-4 ">
                      <div class="media-body">
-                         <h2 class="account-heading" style="color: #fea150;">{{ current_user.username }}</h2>
+                         <h2 class="account-heading" style="color: #A5694B;">{{ current_user.username }}</h2>
                          <p class="text-secondary">{{ current_user.email }}</p>
                      </div>
                  </div>

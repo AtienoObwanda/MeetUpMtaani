@@ -1,10 +1,7 @@
-.content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    box-shadow:#A5694B!important;
-  }
+.card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
 
   .button-17 {
     margin-left: 7em;

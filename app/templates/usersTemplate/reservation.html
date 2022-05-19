@@ -1,19 +1,18 @@
 {% extends "user.html" %}
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-  <div clas="container">
-    <div class="row">
+<div class="container-fluid mb-5 card" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; border-radius:10px;">
+  <div class="row">
       <div class="col-md-6">
-          <img src="{{ url_for('static', filename='images/reservationImg.png') }}" style="width: 100%; height:100%"/>
+          <img class="img-responsive" src="{{ url_for('static', filename='images/reservationImg.png') }}" style="width: 100%; height:100%"/>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 mt-3">
         <div class="content" style="background-color: none;color:#A5694B">
           <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-              <legend class="border-bottom-mb-4 mt-4">Reservation Information</legend>
+              <legend class="border-bottom-mb-4 mt-4 text-center">Reservation Information</legend>
               <div class="dates">
                 <div class="form-group">
                   {{ form.reserveFrom.label(class="form-control-label")}}
@@ -63,7 +62,7 @@
             </fieldset>
 
             <fieldset class="form-group">
-                <legend class="border-bottom-mb-4 mt-4">Personal Details</legend>
+                <legend class="border-bottom-mb-4 mt-4 text-center">Personal Details</legend>
               
               <div class="names">
                 <div class="form-group">
@@ -130,9 +129,9 @@
               </div>    
 
               <div class="text-muted text-center">
-                <p>CONFIRM RESERVATION</p>
+                <!-- <p>CONFIRM RESERVATION</p> -->
 
-                {{ form.submit(class="btn mt-2 btn-outline-info") }}
+                {{ form.submit(class="btn mt-2 btn-outline-info button-17") }}
                   
               </div>
 
