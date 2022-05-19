@@ -19,7 +19,7 @@
 <p>MeetUp Mtaani is a community building webapp which gives people the opportunity to organise groups and host in-person events for people with similar interest at budget friendly rates.</p>
 
 Live link to the project
-[MeetUp Mtaani]()
+[MeetUp Mtaani](https://meetup-mtaani.herokuapp.com/)
 
 ## Requirements
 * A computer running on either Windows, MacOS or Ubuntu operating system installed with the following:
