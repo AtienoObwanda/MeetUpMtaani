@@ -46,10 +46,11 @@
                         <a style="color:#A5694B; font-family: Inter; font-weight: 500;font-size: 20px;"
                             class="nav-link text-uppercase" href="{{url_for('auth.reserve')}}">Add Reservation</a>
                     </li>
-                    <li>
-                        <a style="color:#A5694B; font-family: Italiana; font-weight: 500;font-size: 20px;"
-                            class="nav-link text-uppercase" href="{{url_for('auth.account')}}">Dashboard</a>
-                    </li>
+                    <l1>
+                        <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
+                        class="nav-item nav-link text-uppercase" href="{{ url_for('auth.userAccount') }}">Dashboard</a>
+                    </l1>
+                    
                     <li>
                         <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
                             class="nav-link text-uppercase" href="{{ url_for('auth.logout') }}">Logout</a>
@@ -63,8 +64,7 @@
                     class="nav-item nav-link text-uppercase" href="{{url_for('auth.register')}}">Sign Up</a>
                 <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
                     class="nav-item nav-link text-uppercase" href="{{ url_for('auth.login') }}">Login</a>
-                <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                    class="nav-item nav-link text-uppercase" href="{{ url_for('auth.userTest') }}">TestDashboard</a>
+                
             </div>
             {% endif %}
         </div>

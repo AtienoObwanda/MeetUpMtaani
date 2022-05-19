@@ -93,8 +93,8 @@ def reserve():
 
 
 
-@auth.route('/userTest')
-def userTest():
+@auth.route('/userdashboard/')
+def userAccount():
     '''
     View page function that returns the aboutUs page and its data.
     '''
