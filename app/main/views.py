@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..models import Review, Reservation,Deals,User
+from ..models import Review, Reservation,User
 from flask_login import login_required
 
 
@@ -14,7 +14,7 @@ def index():
     title = "Home- Welcome to the most reliable meetup website "
 
     
-    return render_template('index.html', title=title,  )
+    return render_template('index.html', title=title )
 
 @main.route('/aboutUs')
 def aboutUs():
