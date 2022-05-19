@@ -88,3 +88,15 @@ def reserve():
         flash('Your reservation has been updated', 'success')
         return redirect(url_for('main.index'))
     return render_template("usersTemplate/reservation.html", title='reserve', form=form)
+
+
+
+
+
+@auth.route('/userTest')
+def userTest():
+    '''
+    View page function that returns the aboutUs page and its data.
+    '''
+    
+    return render_template('usersTemplate/userDashboard.html')
