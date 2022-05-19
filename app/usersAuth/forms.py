@@ -1,3 +1,4 @@
+from sqlite3 import Date
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField,SelectField
@@ -5,6 +6,7 @@ from wtforms.validators import DataRequired,Email,EqualTo, ValidationError
 from app.models import *
 from flask_login import current_user
 from datetime import datetime
+from wtforms  import DateField
 
 
 class RegistrationForm(FlaskForm):
@@ -69,19 +71,19 @@ class ProfileForm(FlaskForm):
                 raise ValidationError('That email is taken. PLease choose a different one.')
 
 class ReservationForm(FlaskForm):
-    fname = StringField('First Name: ', validators=[DataRequired()])
+    firstName = StringField('First Name: ', validators=[DataRequired()])
     
-    lname = StringField('Last Name: ', validators=[DataRequired()])
+    lastName = StringField('Last Name: ', validators=[DataRequired()])
     
     address = StringField('Address: ', validators=[DataRequired()])
     
-    pnumber = IntegerField('Mobile Number: ',validators=[DataRequired()])
+    pNumber = IntegerField('Mobile Number: ',validators=[DataRequired()])
     
-    reserveFrom = StringField('Date From:', validators=[DataRequired()])
-    
-    reserveTo = StringField('Date To:', validators=[DataRequired()])
-    
-    mDeal = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
+    checkin = DateField('Checkin From:', format='%Y=%m-%d')
+    checkout = DateField('Checkout On:', format='%Y=%m-%d')
+
+
+    deal = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
         'Pick In a Nick', 'Pick In a Nick'), ('Working Space', 'Working Space')], validators=[DataRequired()])
 
     submit = SubmitField('Reserve')

@@ -80,9 +80,8 @@ def account():
 def reserve():
     form = ReservationForm()
     if form.validate_on_submit():
-        reservation = Reservation(fname=form.fname.data, lname=form.lname.data, mDeal=form.mDeal.data,
-                                    pnumber=form.pnumber.data,reserveFrom=form.reserveFrom.data, 
-                                    reserveTo=form.reserveTo.data,address=form.address.data)
+        reservation = Reservation(firstName=form.firstName.data, lastName=form.lastName.data, deal=form.deal.data,
+                                user_id = current_user.id, pNumber=form.pNumber.data, address=form.address.data)
         db.session.add(reservation)
         db.session.commit()
         flash('Your reservation has been updated', 'success')

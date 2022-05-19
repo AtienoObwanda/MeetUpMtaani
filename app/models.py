@@ -1,3 +1,4 @@
+from ctypes import addressof
 from enum import unique
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin
@@ -31,20 +32,22 @@ class Deals (db.Model):
     dealPrice = db.Column(db.Integer, unique=False, nullable=False)
     title = db.Column(db.String(100), unique=True, nullable=False)
     image = db.Column(db.String(120), nullable=False)
-
+    reservation = db.relationship('Reservation',backref='deals',lazy='dynamic')
 def __repr__(self):
     return f"Deals({self.title},{self.dealPrice},{self.image})"
 
 #User Reservation:
 class Reservation (db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    reservedFrom = db.Column(db.DateTime, nullable=False,default=datetime) # yet to confirm format
-    reservedTill = db.Column(db.DateTime, nullable=False,default=datetime)   # yet to confirm format
-    deals_id = db.Column(db.Integer,db.ForeignKey('deals.id'),nullable=False) #deal
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) #user
+    firstName = db.Column(db.String(50), unique=True, nullable=False)
+    lastName = db.Column(db.String(50), unique=True, nullable=False)
+    address = db.Column(db.String(50), unique=True, nullable=False)
+    pNumber = db.Column(db.Integer(), unique=True, nullable=False)
+    deal_id = db.Column(db.Integer, db.ForeignKey('reservation.id'),nullable=False)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) 
 
 def __repr__(self):
-    return f"Reservation({self.reservedFrom},{self.reservedTill})"
+    return f"Reservation({self.firstName},{self.lastName},{self.address}, {self.pNumber}, {self.deal},{self.checkin},{self.checkout},{self.deals})"
 
 # Comment
 class Review(db.Model):
