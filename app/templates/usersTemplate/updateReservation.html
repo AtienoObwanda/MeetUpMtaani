@@ -1,0 +1,64 @@
+{% extends "user.html" %} {% block content %}
+
+<div class="container-fluid mb-5 card" style="
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+  ">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-responsive" src="{{ url_for('static', filename='images/reservationImg.png') }}"
+        style="width: 100%; height: 100%" />
+    </div>
+
+    <div class="col-md-6 mt-3">
+      <div class="content" style="background-color: none; color: #a5694b">
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+            <legend class="border-bottom-mb-4 mt-4 text-center">
+              Reservation Information
+            </legend>
+            <div class="form-group">
+              {{ form.deals.label(class="form-control-label")}} {% if
+              form.deals.errors %} {{ form.deals(class="form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.deals.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+
+              {% else %} {{ form.deals(class="form-control form-control-lg")}} {%
+              endif%}
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+
+            </div>
+
+            <div class="names">
+
+              <div class="form-group">
+                {{ form.numberOfPeople.label(class="form-control-label")}} {% if
+                form.numberOfPeople.errors %} {{ form.numberOfPeople(class="form-control-lg
+                is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.numberOfPeople.errors %}
+                  <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+
+                {% else %} {{ form.numberOfPeople(class="form-control
+                form-control-lg")}} {% endif%}
+              </div>
+
+            <div class="text-muted text-center">
+              {{ form.submit(class="btn mt-2 btn-outline-info button-17") }}
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -82,4 +82,12 @@ class ReservationForm(FlaskForm):
         "Pick In a Nick", "Pick In a Nick"), ("Working Space", "Working Space")], validators=[DataRequired()])
 
     submit = SubmitField('Reserve')
+
+
+class UpdateReservationForm(FlaskForm):
+    numberOfPeople = IntegerField('Number of People: ', validators=[DataRequired()])
+    deals = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
+        "Pick In a Nick", "Pick In a Nick"), ("Working Space", "Working Space")], validators=[DataRequired()])
+
+    submit = SubmitField('Update')
         

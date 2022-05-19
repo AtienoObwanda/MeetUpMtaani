@@ -5,7 +5,7 @@ class Config:
     Parent config class
     '''
     SECRET_KEY =os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/mydb'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/mtaani3'
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     # Mail confugurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -35,7 +35,7 @@ class DevConfig(Config):
     '''
 # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 # SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
-SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/mydb'
+SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/mtaani3'
 
 DEBUG = True
 
