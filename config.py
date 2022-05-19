@@ -5,7 +5,7 @@ class Config:
     Parent config class
     '''
     SECRET_KEY =os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/mtaani3'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:Access@localhost/newdb'
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     # Mail confugurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -24,7 +24,7 @@ class Config:
 
 
 class ProdConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1) 
 
 DEBUG = True
 
@@ -35,7 +35,7 @@ class DevConfig(Config):
     '''
 # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 # SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
-SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://atieno:mishi@localhost/mtaani3'
+SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:Access@localhost/newdb'
 
 DEBUG = True
 
