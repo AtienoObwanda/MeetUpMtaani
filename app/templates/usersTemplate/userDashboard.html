@@ -1,3 +1,5 @@
+{% extends "user.html" %}
+{% block content %}
 <!doctype html>
 <html lang="en">
 
@@ -15,72 +17,83 @@
 </head>
 
 <body class="mainBg">
-
-
+   
     <div class="container">
-        <div class="header d-flex align-items-center flex-wrap">
-            <a href="#" class="navbar-brand">
-                <span class="white-head">
-                    <span class="pink-head">MeetUp</span>Mtaani
-                </span>
-            </a>
-            <ul class="nav nav-tabs ms-sm-4">
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{url_for('main.index')}}">
-                        <span class="fas fa-th-list"></span>
-                        Home:
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{url_for('auth.reserve')}}">
-                        <span class="fas fa-th-list"></span>
-                        Add Reservation:
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{url_for('auth.account')}}">
-                        <span class="fas fa-th-list"></span>
-                        Update account
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{url_for('auth.userAccount')}}">
-                        <span class="fas fa-th-list"></span>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a></a>
-
-                    </a></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
-                        <span class="fas fa-th-list"></span>
-                        <small style="color: #A5694B;">Howdy, {{ current_user.username }} </small>
-                    </a>
-                </li>
-
-            </ul>
-            <div class="nav-end ms-sm-auto">
-                <a href="#">
-                    <span class="fas fa-bell"></span>
-                </a>
-                <button class="btn">
-                    <img class="rounded-circle account-img" src="{{ url_for('static', filename='images/default.png') }}"
-                        alt="" id="profile-photo">
-
-                </button>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="wrapper d-flex">
+                    <div class="sidebar">
+                    <div class="align-items-center flex-wrap">
+                        <!-- <a href="{{url_for('main.index')}} class="navbar-brand">
+                            <span class="white-head text-center">
+                                <span class="text-center" style="color:#A5694B">MeetUp</span>Mtaani
+                            </span>
+                        </a>  -->
+                        <ul class="nav ms-sm-4">
+                            <div class="nav-end ms-sm-auto">
+                    
+                                <button class="btn">
+                                    <img class="rounded-circle account-img" src="{{ url_for('static', filename='images/default.png') }}"
+                                        alt="" id="profile-photo">
+                
+                                </button>
+                            </div>
+                            <li class="nav-item" >
+                                <a class="nav-link " aria-current="page" href="#">
+                                    <span class="fas fa-th-list"></span>
+                                    <small> <span style="color: #A5694B;">{{ current_user.username }}</span> </small>
+                                </a>
+                            </li>
+                        </br>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page">
+                                <span class="fas fa-th-list"></span>
+                                
+                            </a>
+                        </li>
+                 
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{url_for('main.index')}}" style="color: #A5694B;">
+                                    <span class="fas fa-th-list"></span>
+                                    Home
+                                </a>
+                            </li>
+                     
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{url_for('auth.reserve')}}" style="color: #A5694B;">
+                                    <span class="fas fa-th-list"></span>
+                                    Add Reservation:
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{url_for('auth.account')}}" style="color: #A5694B;">
+                                    <span class="fas fa-th-list"></span>
+                                    Update account
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{url_for('auth.userAccount')}}" style="color: #A5694B;" >
+                                    <span class="fas fa-th-list"></span>
+                                    Dashboard
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a></a>
+            
+                                </a></a>
+                            </li>
+        
+            
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-        <div class="content my-5 d-flex align-items-start flex-wrap">
-            <div class="list  py-3 tableNm">
+<div class="col-md-8">
+    <!--Dashboard-->
+         <div class="content my-5 d-flex  flex-wrap"> 
+             <div class="list  py-3 tableNm"> 
                 <div class="row m-0 px-2 pb-1 border-bottom">
                     <div class="col-lg-12 d-flex align-items-center flex-wrap">
                         <div class="label mx-1">ACTIVE RESERVATIONS FOR: {{current_user.username}} </div>
@@ -115,7 +128,8 @@
                                                     <path
                                                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                                                 </svg></a>
-                                            <a> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            <a href="{{url_for('auth.updateReserve',reservation_id=reservation.id)}}"> 
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                     <path
                                                         d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -132,9 +146,12 @@
 
                     </table>
                 </div>
-            </div>
-
+            </div> 
         </div>
+    <!--end of center dashboard-->
+</div>
+</div>
+
     </div>
     <!--jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -147,3 +164,4 @@
 </body>
 
 </html>
+{% endblock content %}

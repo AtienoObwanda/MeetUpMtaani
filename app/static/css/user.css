@@ -9,10 +9,10 @@
     font-family: 'Poppins', sans-serif;
 }
 .tableNm{
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.636);
     overflow: hidden;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.801);
 }
 
 body {
@@ -214,11 +214,11 @@ body {
 
 .container .content .list .table tr .fs-08 {
     font-size: 0.8rem;
-    color: #0e5c9c;
+    color: #A5694B;
 }
 
 .container .content .list .table tr th {
-    color: #0e5c9c;
+    color: #A5694B;
     border: none;
     vertical-align: middle;
     text-align: center;
@@ -344,7 +344,9 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.15);
+    /* background-color: #a5694b84; */
+    /* background-color:#fff; */
+    background-color: rgba(255, 255, 255, 0.436);
     border-radius: 15px;
     min-height: 200px;
     margin-top: 50px;
@@ -446,24 +448,7 @@ body {
     border-radius: 8px;
 }
 
-.container .content .list .lamp #lamp {
-    width: 40px;
-    height: 40px;
-}
 
-.container .content .list .progress,
-.container .content #analyse-section .level-box .progress {
-    background-color: #e6e6e6;
-    border-radius: 15px;
-    height: 0.8rem;
-}
-
-.container .content .list .progress-bar,
-.container .content #analyse-section .level-box .progress-bar {
-    background: linear-gradient(135deg, #b500ec, #db76fa);
-    border-radius: 15px;
-    animation: fill-progress 0.4s forwards;
-}
 
 @keyframes fill-progress {
     0% {
@@ -647,3 +632,57 @@ body {
 }
 
 
+
+.sidebar{
+	position: fixed;
+	width: 280px;
+	height: 530px;
+    background-color: rgba(255, 255, 255, 0.478);
+    border-radius: 15px;
+	padding: 20px 0;
+    margin-top: 3em;
+    margin-left: 2em;
+}
+.text-muted{
+	color: #adb5bd!important;
+}
+ul{
+	padding-bottom: 20px; 
+}
+ul li a img{
+	background: #66BB6A;
+	top: 0;
+	border: none;
+	width: 20px;
+}
+ .sidebar ul li{
+	padding: 15px;	
+}
+.sidebar ul li a{
+	color: #fff;
+	display: block;
+}
+.sidebar ul li a .fas{
+	width: 30px;
+	color: #bdb8d7!important;
+}
+i.fas.fa-home:hover,
+i.fas.fa-file-invoice:hover,
+i.fas.fa-video:hover,
+i.fas.fa-id-badge:hover,
+i.fas.fa-external-link-alt:hover,
+i.fas.fa-code:hover,
+i.far.fa-calendar-alt:hover,
+i.far.fa-credit-card:hover{
+	color: #304FFE!important;
+} 
+.sidebar ul li a .far{
+	width: 30px;
+	color: #A5694B!important;
+}
+.sidebar ul li:hover{
+	background: #a5694b00;
+}
+.sidebar ul li a:hover{
+	text-decoration: none;
+}

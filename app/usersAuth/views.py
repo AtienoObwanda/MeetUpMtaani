@@ -119,3 +119,23 @@ def deleteReserve(reservation_id):
     return redirect(url_for('auth.userAccount'))
 
 
+@auth.route("/reserve/<int:reservation_id>/update", methods=['GET', 'POST'])
+@login_required
+def updateReserve(reservation_id):
+    reservation = Reservation.query.get_or_404(reservation_id)
+    
+    form = UpdateReservationForm()
+    if form.validate_on_submit():
+
+            reservation.deals=form.deals.data,
+            reservation.numberOfPeople= form.numberOfPeople.data
+
+            db.session.commit()
+            flash(f'Account details for {current_user.username} successfully updated!', 'sucess')
+            return redirect(url_for('auth.userAccount'))
+
+    elif request.method == 'GET':
+        form.deals.data = reservation.deals
+        form.numberOfPeople.data = reservation.numberOfPeople
+
+    return render_template('usersTemplate/updateReservation.html', title='Update Reservation', form=form)
