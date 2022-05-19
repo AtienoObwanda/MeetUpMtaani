@@ -18,6 +18,10 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(15), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     image = db.Column(db.String(120), nullable=False, default='adminDefault.png')
+    firstName = db.Column(db.String(50), unique=False, nullable=False)
+    lastName = db.Column(db.String(50), unique=False, nullable=False)
+    address = db.Column(db.String(50), unique=False, nullable=False)
+    pNumber = db.Column(db.Integer(), unique=False, nullable=False)
     password = db.Column(db.String(60),nullable=False)
     reservation = db.relationship('Reservation', backref='user',lazy=True)
 
@@ -25,29 +29,15 @@ class User(UserMixin, db.Model):
         return f'User({self.username},{self.email},{self.image})'
 
 
-
-# Deals:
-class Deals (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    dealPrice = db.Column(db.Integer, unique=False, nullable=False)
-    title = db.Column(db.String(100), unique=True, nullable=False)
-    image = db.Column(db.String(120), nullable=False)
-    reservation = db.relationship('Reservation',backref='deals',lazy='dynamic')
-def __repr__(self):
-    return f"Deals({self.title},{self.dealPrice},{self.image})"
-
 #User Reservation:
 class Reservation (db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(50), unique=True, nullable=False)
-    lastName = db.Column(db.String(50), unique=True, nullable=False)
-    address = db.Column(db.String(50), unique=True, nullable=False)
-    pNumber = db.Column(db.Integer(), unique=True, nullable=False)
-    deal_id = db.Column(db.Integer, db.ForeignKey('reservation.id'),nullable=False)
+    numberOfPeople= db.Column(db.Integer())
+    deals = db.Column(db.String(255), index = True,nullable = False)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) 
 
 def __repr__(self):
-    return f"Reservation({self.firstName},{self.lastName},{self.address}, {self.pNumber}, {self.deal},{self.checkin},{self.checkout},{self.deals})"
+    return f"Reservation({self.firstName},{self.lastName},{self.address}, {self.pNumber},{self.checkin},{self.checkout},{self.deals})"
 
 # Comment
 class Review(db.Model):

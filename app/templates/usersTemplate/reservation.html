@@ -19,15 +19,15 @@
               Reservation Information
             </legend>
             <div class="form-group">
-              {{ form.deal.label(class="form-control-label")}} {% if
-              form.deal.errors %} {{ form.deal(class="form-control-lg is-invalid") }}
+              {{ form.deals.label(class="form-control-label")}} {% if
+              form.deals.errors %} {{ form.deals(class="form-control-lg is-invalid") }}
               <div class="invalid-feedback">
-                {% for error in form.deal.errors %}
+                {% for error in form.deals.errors %}
                 <span>{{ error }}</span>
                 {% endfor %}
               </div>
 
-              {% else %} {{ form.deal(class="form-control form-control-lg")}} {%
+              {% else %} {{ form.deals(class="form-control form-control-lg")}} {%
               endif%}
             </div>
           </fieldset>
@@ -48,8 +48,7 @@
                   {% endfor %}
                 </div>
 
-                {% else %} {{ form.firstName(class="form-control
-                form-control-lg")}} {% endif%}
+                {% else %} {{ form.firstName(class="form-control form-control-lg")}} {% endif%}
               </div>
 
               <div class="form-group">

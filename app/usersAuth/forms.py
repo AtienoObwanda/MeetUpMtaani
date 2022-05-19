@@ -79,12 +79,11 @@ class ReservationForm(FlaskForm):
     
     pNumber = IntegerField('Mobile Number: ',validators=[DataRequired()])
     
-    checkin = DateField('Checkin From:', format='%Y=%m-%d')
-    checkout = DateField('Checkout On:', format='%Y=%m-%d')
+    # checkin = DateField('Checkin From:', format='%Y=%m-%d')
+    # checkout = DateField('Checkout On:', format='%Y=%m-%d')
 
-
-    deal = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
-        'Pick In a Nick', 'Pick In a Nick'), ('Working Space', 'Working Space')], validators=[DataRequired()])
+    deals = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
+        "Pick In a Nick", "Pick In a Nick"), ("Working Space", "Working Space")], validators=[DataRequired()])
 
     submit = SubmitField('Reserve')
         

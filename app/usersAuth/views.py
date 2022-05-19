@@ -80,7 +80,7 @@ def account():
 def reserve():
     form = ReservationForm()
     if form.validate_on_submit():
-        reservation = Reservation(firstName=form.firstName.data, lastName=form.lastName.data, deal=form.deal.data,
+        reservation = Reservation(firstName=form.firstName.data, lastName=form.lastName.data, deals=form.deals.data,
                                 user_id = current_user.id, pNumber=form.pNumber.data, address=form.address.data)
         db.session.add(reservation)
         db.session.commit()
@@ -94,8 +94,12 @@ def reserve():
 
 @auth.route('/userdashboard/')
 def userAccount():
+    user_id = current_user._get_current_object().id
+    reservation = Reservation.query.filter_by(user_id=user_id ).all()
+
+   
     '''
     View page function that returns the aboutUs page and its data.
     '''
     
-    return render_template('usersTemplate/userDashboard.html')
+    return render_template('usersTemplate/userDashboard.html', reservation= reservation)
