@@ -12,7 +12,7 @@
 + [Behaviour Driven Development(BDD)](#behaviour-driven-development-bdd)
 + [Technologies Used](#technologies-used)
 + [Licence](#licence)
-+ [Authors Info](#authors-info)
++ [Contributors](#contributors)
 
 
 ## Description
@@ -103,11 +103,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-## Authors Info
+## Contributors
 
-LinkedIn - [https://www.linkedin.com/in/gedion-onsongo-112543210/)
+Gedion Onsongo - [https://www.linkedin.com/in/gedion-onsongo-112543210/]
 
-Reddit - [https://www.reddit.com/user/stainscode]
+Innoncencia Kakan- [https://www.linkedin.com/in/innoncencia-kakan-28b3a199/]
+
+Maureen Njung'e- [https://www.linkedin.com/in/maureen-njung-e-61b362181/]
+
+Gladys Mwangi- [https://www.linkedin.com/in/gladys-mwangi-a2994088/]
+
+Atieno Obwanda- [https://www.linkedin.com/in/millicent-atieno/]
    
 
 
