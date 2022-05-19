@@ -15,7 +15,8 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(email = form.email.data, username = form.username.data,password = hashed_password)
+        user = User(Name=form.email.data, pNumber=form.pNumber.data,
+                    email=form.email.data, username=form.username.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash(f'Account created successfully!', 'success')
@@ -57,6 +58,8 @@ def save_picture(form_picture): # saving image
 @auth.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
+    user_id = current_user._get_current_object().id
+    reservation = Reservation.query.filter_by(user_id=user_id).all()
     form = ProfileForm()
     if form.validate_on_submit():
         if form.picture.data:
@@ -73,7 +76,7 @@ def account():
         form.email.data = current_user.email # Populate user email on to the form
     image = url_for('static', filename='profile/' + current_user.image) # route for default profile picture
     
-    return render_template("usersTemplate/dashboard.html", title='Account', image=image, form=form)
+    return render_template("usersTemplate/dashboard.html", title='Account', reservation=reservation, image=image, form=form)
 
 @auth.route('/reserve', methods=['GET', 'POST'])
 @login_required
@@ -103,3 +106,31 @@ def userAccount():
     '''
     
     return render_template('usersTemplate/userDashboard.html', reservation= reservation)
+
+
+@auth.route("/reserve/<int:reservation_id>/delete", methods=["GET", "POST"])
+@login_required
+def deleteReserve(reservation_id):
+    reservation = Reservation.query.get_or_404(reservation_id)
+    
+    db.session.delete(reservation)
+    db.session.commit()
+    flash('Your reservation has been canceled!', 'success')
+    return redirect(url_for('auth.userAccount'))
+
+
+@auth.route("/reserve/<int:reservation_id>/update", methods=['GET', 'POST'])
+@login_required
+def updateReserve(reservation_id):
+    reservation = Reservation.query.get_or_404(reservation_id)
+    form = ReservationForm()
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.content = form.content.data
+        db.session.commit()
+        flash('Your post has been updated', 'success')
+        return redirect(url_for('main.post', post_id=post.id))
+    elif request.method == 'GET':
+        form.title.data = post.title
+        form.content.data = post.content
+    return render_template('create_post.html', title='Update Post', form=form, legend='Update Blog')
