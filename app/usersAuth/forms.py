@@ -1,18 +1,22 @@
+from sqlite3 import Date
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField
+from wtforms import Form,StringField, TextAreaField, SubmitField,PasswordField,BooleanField,IntegerField,SelectField
 from wtforms.validators import DataRequired,Email,EqualTo, ValidationError
 from app.models import *
 from flask_login import current_user
+from datetime import datetime
+from wtforms  import DateField
 
 
 class RegistrationForm(FlaskForm):
+    Name = StringField('Name:', validators=[DataRequired()])
+    # lastName = StringField('Last Name:', validators=[DataRequired()])
+    pNumber = IntegerField('Phone Number:', validators=[DataRequired()])
+    # address = StringField('Address:', validators=[DataRequired()])
     username = StringField('Username: ', validators=[DataRequired()])
-    
     email = StringField('Email: ', validators=[DataRequired(), Email()])
-    
     password = PasswordField('Password: ', validators=[DataRequired()])
-    
     confirm_password = PasswordField('Confirm Password: ', validators=[DataRequired(),EqualTo('password')])
     
     submit = SubmitField('Sign Up')
@@ -30,7 +34,7 @@ class RegistrationForm(FlaskForm):
     
     
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email:', validators=[DataRequired()])
     
     password = PasswordField('Password', validators=[DataRequired()])
     
@@ -38,10 +42,6 @@ class LoginForm(FlaskForm):
     
     submit = SubmitField('Sign In')
     
-class NewDealForm(FlaskForm):
-    title = StringField('The Title:', validators = [DataRequired()])
-    content = TextAreaField('Your Content', validators = [DataRequired()])
-    submit = SubmitField('Post')
     
     
 class ReviewForm(FlaskForm):
@@ -71,18 +71,23 @@ class ProfileForm(FlaskForm):
             if user:
                 raise ValidationError('That email is taken. PLease choose a different one.')
 
-class Reservation(FlaskForm):
-    fname = StringField('First Name: ', validators=[DataRequired()])
+class ReservationForm(FlaskForm):
+    numberOfPeople = IntegerField('Number of People: ', validators=[DataRequired()])
     
-    lname = StringField('Last Name: ', validators=[DataRequired()])
     
-    email = StringField('Email: ', validators=[DataRequired(), Email()])
-    
-    address = StringField('Address: ', validators=[DataRequired()])
-    
-    pnumber = Integer('Mobile Number: ',validators=[DataRequired()])
-    
-    reserve = DateTime('Reservation:', validators=[DataRequired()])
-    
+    # checkin = DateField('Checkin From:', format='%Y=%m-%d')
+    # checkout = DateField('Checkout On:', format='%Y=%m-%d')
+
+    deals = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
+        "Pick In a Nick", "Pick In a Nick"), ("Working Space", "Working Space")], validators=[DataRequired()])
+
     submit = SubmitField('Reserve')
+
+
+class UpdateReservationForm(FlaskForm):
+    numberOfPeople = IntegerField('Number of People: ', validators=[DataRequired()])
+    deals = SelectField('Mtaani Deal', choices=[("She's Mine", "She's mine"), (
+        "Pick In a Nick", "Pick In a Nick"), ("Working Space", "Working Space")], validators=[DataRequired()])
+
+    submit = SubmitField('Update')
         

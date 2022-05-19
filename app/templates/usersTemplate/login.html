@@ -1,6 +1,70 @@
-{% extends 'base.html' %}
+{% extends "user.html" %}
 {% block content %}
-
-<h1>Meet Up Mtaani...</h1>
-
-{% endblock%}
+<div class="container card" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; border-radius:10px;">
+      <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/login.png') }}" style="width: 100%; height:100%"/>
+        </div>
+  
+        <div class="col-md-6 mt-3">
+          <div class="content" style="background-color: none;color:#A5694B">
+            <form method="POST" action="">
+              {{ form.hidden_tag() }}
+              <fieldset class="form-group">
+                <legend class="border-bottom-mb-4 mt-4 text-center">Welcome Back!</legend>
+  
+                <div class="form-group">
+                  {{ form.email.label(class="form-control-label")}}
+                  {% if form.email.errors %}
+                  {{ form.email(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+  
+                  {% else %}
+                  {{ form.email(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+  
+                <div class="form-group">
+                  {{ form.password.label(class="form-control-label")}}
+                  {% if form.password.errors %}
+                  {{ form.password(class="form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+  
+                  {% else %}
+                  {{ form.password(class="form-control form-control-lg")}}
+                  {% endif%}
+                </div>
+                <div class="form-check">
+                  {{ form.remember(class="form-check-input") }}
+                  {{ form.remember.label(class="form-check-label") }}
+                </div>
+  
+              </fieldset>
+              <div class="form-group text-center">
+  
+                {{ form.submit(class="btn mt-2 btn-outline-info button-17") }}
+  
+              </div>
+              
+              <div class="text-center">
+                <small class="text-muted text-center">
+                  Need An Account? <a class="ml-2" style="color:#A5694B" href="{{ url_for('auth.register') }}"
+                    >SIGN UP</a>
+                  </small>
+              </div>
+  
+            </form>
+          </div>
+        </div>  
+    </div>
+    </div>    
+  </div>  
+{% endblock content %}

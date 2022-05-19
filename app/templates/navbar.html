@@ -1,6 +1,6 @@
-<nav style="bacground-color:#A5694B;" class="nav navbar navbar-expand-lg navbar-dark sticky-top shadow-lg" id="nav">
+<nav style="background-color: #fff; margin-bottom: -3em;" class="nav navbar navbar-expand-lg navbar-dark shadow-lg" id="nav">
     <a class="navbar-brand" href="/">
-        <h1> <img src="{{url_for('static',filename = 'images/logo.png')}}" class="img-fluid m-0" alt="..."></h1>
+        <h1> <img src="{{url_for('static',filename = 'images/logo.png')}}" class="img-fluid" alt="..."></h1>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
         aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,23 +11,42 @@
             <ul class="navbar-nav ps-5">
                 <li class="nav-item active">
                     <a style="color:#A5694B; font-family: Inter; font-weight: 500;font-size: 20px;"
-                        class="nav-link text-uppercase" href="">Home <span class="sr-only">(current)</span></a>
+                        class="nav-link text-uppercase" href="{{url_for('main.index')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li>
                     <a style="color:#A5694B; font-family: Italiana; font-weight: 500;font-size: 20px;"
-                        class="nav-link text-uppercase" href="">About Us</a>
+                        class="nav-link text-uppercase" href="{{url_for('main.aboutUs')}}">About Us</a>
                 </li>
                 <li>
                     <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                        class="nav-link text-uppercase" href="">Our Deals</a>
+                        class="nav-link text-uppercase" href="{{url_for('main.deals')}}">Our Deals</a>
+                </li>
+            </ul>
+        {% if current_user.is_authenticated %}
+            <ul class="navbar-nav ps-5">
+                <li class="nav-item active">
+                    <a style="color:#A5694B; font-family: Inter; font-weight: 500;font-size: 20px;"
+                        class="nav-link text-uppercase" href="{{url_for('auth.reserve')}}">Add Reservation</a>
+                </li>
+                <l1>
+                    <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
+                    class="nav-item nav-link text-uppercase" href="{{ url_for('auth.userAccount') }}">Dashboard</a>
+                </l1>
+                <li>
+                    <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
+                        class="nav-link text-uppercase" href="{{ url_for('auth.logout') }}">Logout</a>
                 </li>
             </ul>
         </div>
+
+        {% else%}
         <div class="navbar-nav">
             <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                class="nav-item nav-link text-uppercase" href="">Sign Up</a>
+                class="nav-item nav-link text-uppercase" href="{{url_for('auth.register')}}">Sign Up</a>
             <a style="color:#A5694B; font-family: Italiana; font-weight: 500; font-size: 20px;"
-                class="nav-item nav-link text-uppercase" href="">Login</a>
+                class="nav-item nav-link text-uppercase" href="{{ url_for('auth.login') }}">Login</a>
+            
         </div>
+        {% endif %}
     </div>
 </nav>
